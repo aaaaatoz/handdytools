@@ -6,14 +6,18 @@ function GetMem
  echo $MEMUsage
  }
  
- mem=`GetMem $PID`
- if [ $mem -gt 1600 ]
- then
+ function CheckCpu
  {
- echo “The usage of memory is larger than 1.6G”
- }
- else
- {
- echo “The usage of memory is normal”
- }
- fi
+  PID=$1
+  mem=`GetMem $PID`
+  if [ $mem -gt 1600 ]
+  then
+  {
+    echo “The usage of memory is larger than 1.6G”
+  }
+  else
+  {
+    echo “The usage of memory is normal”
+  }
+  fi
+  }
